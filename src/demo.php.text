@@ -1,0 +1,50 @@
+<?php
+
+require __DIR__ . '/vendor/autoload.php';
+
+use Mzm\PhpSso\SsoClient;
+use Mzm\PhpSso\Session\SessionManager;
+use Mzm\PhpSso\Http\Router;
+use Mzm\PhpSso\Middleware\AuthMiddleware;
+use Mzm\PhpSso\Middleware\TokenMiddleware;
+
+SessionManager::start();
+
+// Setup Client SSO
+$sso = new SsoClient([
+    'sso_base_url' => 'https://sso.example.com',
+    'redirect_home' => '/home',
+]);
+
+$router = new Router();
+
+// Middleware untuk periksa pengguna log masuk
+$authMiddleware = new AuthMiddleware();
+$tokenMiddleware = new TokenMiddleware('https://sso.example.com');
+
+// Route utama
+$router->get('', function () {
+    echo 'Selamat datang ke Aplikasi Gerak!';
+});
+
+// Route login
+$router->get('login', function () use ($sso) {
+    echo $sso->showLogin();
+});
+
+// Route callback SSO
+$router->get('callback', function () use ($sso) {
+    $sso->handleCallback();
+});
+
+// Route home - pastikan pengguna telah log masuk
+$router->get('home', function () use ($authMiddleware, $tokenMiddleware) {
+    $authMiddleware->handle();
+    $tokenMiddleware->handle();
+
+    $user = SessionManager::get('user');
+    echo "Selamat datang, {$user['name']}!";
+});
+
+// Jalankan router
+$router->dispatch();

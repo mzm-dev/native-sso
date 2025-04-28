@@ -1,0 +1,20 @@
+{
+    "name": "mzm/phpsso",
+    "description": "PHP Native package for SSO integration between apps clients",
+    "type": "library",
+    "license": "MIT",
+    "authors": [
+        {
+         "name": "Mohamad Zaki",
+            "email": "mzm@gmail.com"
+        }
+    ],
+    "autoload": {
+        "psr-4": {
+            "Mzm\\PhpSso\\": "src/"
+        }
+    },
+    "require": {
+        "php": "^7.4 || ^8.0"
+    }
+}
