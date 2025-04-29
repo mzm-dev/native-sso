@@ -1,0 +1,4 @@
+[2025-04-29 05:00:32] ERROR: Curl Success : https://sso.ns.test/api/user
+[2025-04-29 05:01:39] ERROR: Curl Success : https://sso.ns.test/api/user
+[2025-04-29 05:01:39] ERROR: Execute the query : {"emel":"email","nokp":"nokp","status":null}
+[2025-04-29 05:01:39] ERROR: SsoClent handleCallback : Pengguna tidak ditemui.

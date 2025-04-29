@@ -7,6 +7,6 @@
 </head>
 <body>
     <h1>Sila Login melalui SSO</h1>
-    <a href="https://sso.example.com/login">Login SSO</a>
+    <a href="https://ilogin.ns.gov.my/login?token=">Login SSO</a>
 </body>
 </html>

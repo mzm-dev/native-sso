@@ -2,6 +2,8 @@
 
 namespace Mzm\PhpSso;
 
+use Mzm\PhpSso\Helpers\Logger;
+
 class ViewRenderer
 {
     public static function render($view, $data = [])
@@ -15,6 +17,7 @@ class ViewRenderer
             return ob_get_clean();
         }
 
+        Logger::log("ViewRenderer : View {$view} tidak dijumpai.");
         return "View {$view} tidak dijumpai.";
     }
 }
