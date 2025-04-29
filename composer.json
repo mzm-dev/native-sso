@@ -3,6 +3,7 @@
     "description": "PHP Native package for SSO integration between apps clients",
     "type": "library",
     "license": "MIT",
+    "version": "1.0.0",
     "authors": [
         {
          "name": "Mohamad Zaki",

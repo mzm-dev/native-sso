@@ -1,0 +1,16 @@
+<?php
+
+namespace Mzm\PhpSso\Enums;
+
+enum Config: string
+{    
+    case SSO_TOKEN = 'XXX-XXX-XX';
+    case SSO_ORIGIN = 'https://sistem-a.example.com';
+    case SSO_BASE_URL = 'https://sso.example.com';
+    case SSO_HOME = '/sso/home';
+    case SSO_USER_FINDER = '';
+    case CONN_HOST = 'localhost';
+    case CONN_DB = 'dbname';
+    case CONN_USER = 'root';
+    case CONN_PASS = '';
+}

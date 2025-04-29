@@ -1,0 +1,18 @@
+<?php
+
+namespace Mzm\PhpSso\Enums;
+
+class Queries
+{
+    public const FIND_USER_QUERY = "
+        SELECT *
+        FROM User        
+        WHERE %s
+        LIMIT 1
+    ";
+
+    public const FIND_USER_WHERE = [
+        'email' => 'email' ?? null,        
+        'status' => null, // force cari user active
+    ];
+}
